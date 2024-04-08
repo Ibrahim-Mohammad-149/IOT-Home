@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arduino IoT Application</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div id="confirmationDialog" class="dialog">
+  <p>Are you sure you want to remove this component?</p>
+  <div class="buttons">
+    <button id="confirmButton" class="btn confirm">Yes</button>
+    <button id="cancelButton" class="btn cancel">Close</button>
+  </div>
+</div>
+
+<div id="renameModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeRenameModal()">&times;</span>
+    <p>Enter new name for the component:</p>
+    <input type="text" id="newComponentName" placeholder="New Name">
+    <button class="btn green" onclick="renameComponentInModal()">Rename</button>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="title">Arduino IoT Application</h1>
+  <div class="components">
+    <button class="btn primary" onclick="openHomeModal()">Add Home Appliance</button>
+    <button class="btn primary" onclick="openSecurityModal()">Add Security Appliance</button>
+  </div>
+</div>
+<div class="additional-container">
+  <div id="homeComponents" class="componentType">
+    <h2>Home Appliances</h2>
+    <!-- Home components will be dynamically added here -->
+  </div>
+</div>
+<div class="additional-container">
+  <div id="securityComponents" class="componentType">
+    <h2>Security Appliances</h2>
+    <!-- Security components will be dynamically added here -->
+  </div>
+</div>
+<div id="homeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeHomeModal()">&times;</span>
+    <p>Select Home Appliance Type:</p>
+    <div class="appliance-icons">
+      <button class="btn" onclick="addHomeComponent('soil')"><i class="fas fa-tint"></i> Soil Moisture Sensor</button>
+      <button class="btn" onclick="addHomeComponent('heat')"><i class="fas fa-thermometer-half"></i> Heat Sensor</button>
+      <button class="btn" onclick="addHomeComponent('harmfulGas')"><i class="fas fa-exclamation-triangle"></i> Harmful Gas Sensor</button>
+      <button class="btn" onclick="addHomeComponent('light')"><i class="far fa-lightbulb"></i> Light Sensor</button>
+    </div>
+  </div>
+</div>
+<div id="securityModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeSecurityModal()">&times;</span>
+    <p>Select Security Appliance Type:</p>
+    <div class="appliance-icons">
+      <button class="btn" onclick="addSecurityComponent('camera')"><i class="fas fa-video"></i> Camera</button>
+      <button class="btn" onclick="addSecurityComponent('doorLock')"><i class="fas fa-door-closed"></i> Door Lock</button>
+      <button class="btn" onclick="addSecurityComponent('distanceSensor')"><i class="fas fa-ruler"></i> Distance Sensor</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
